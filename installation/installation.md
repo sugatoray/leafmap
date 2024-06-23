@@ -5,7 +5,7 @@
 **leafmap** is available on [PyPI](https://pypi.org/project/leafmap/). To install **leafmap**, run this command in your terminal:
 
 ```bash
-    pip install leafmap
+pip install leafmap
 ```
 
 ## Install from conda-forge
@@ -14,23 +14,20 @@
 [Anaconda](https://www.anaconda.com/distribution/#download-section) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your computer, you can install leafmap using the following command:
 
 ```bash
-    conda install leafmap -c conda-forge
+conda install leafmap -c conda-forge
 ```
 
-The leafmap package has an optional dependency - [geopandas](https://geopandas.org/), which can be challenging to install on some computers, especially Windows. It is highly recommended that you create a fresh conda environment to install geopandas and leafmap. Follow the commands below to set up a conda env and isntall geopandas, xarray_leaflet, and leafmap.
+The leafmap package has some optional dependencies (e.g., [geopandas](https://geopandas.org/) and [localtileserver](https://github.com/banesullivan/localtileserver)), which can be challenging to install on some computers, especially Windows. It is highly recommended that you create a fresh conda environment to install geopandas and leafmap. Follow the commands below to set up a conda env and install [geopandas](https://geopandas.org), [localtileserver](https://github.com/banesullivan/localtileserver), [keplergl](https://docs.kepler.gl/docs/keplergl-jupyter), [pydeck](https://deckgl.readthedocs.io/), and leafmap.
 
 ```bash
-    conda create -n geo python=3.8
-    conda activate geo
-    conda install geopandas
-    conda install mamba -c conda-forge
-    mamba install leafmap xarray_leaflet -c conda-forge
+conda install -n base mamba -c conda-forge
+mamba create -n geo leafmap geopandas localtileserver python -c conda-forge
 ```
 
 Optionally, you can install some [Jupyter notebook extensions](https://github.com/ipython-contrib/jupyter_contrib_nbextensions), which can improve your productivity in the notebook environment. Some useful extensions include Table of Contents, Gist-it, Autopep8, Variable Inspector, etc. See this [post](https://towardsdatascience.com/jupyter-notebook-extensions-517fa69d2231) for more information.
 
 ```bash
-    conda install jupyter_contrib_nbextensions -c conda-forge
+conda install jupyter_contrib_nbextensions -c conda-forge
 ```
 
 ## Install from GitHub
@@ -38,7 +35,15 @@ Optionally, you can install some [Jupyter notebook extensions](https://github.co
 To install the development version from GitHub using [Git](https://git-scm.com/), run the following command in your terminal:
 
 ```bash
-    pip install git+https://github.com/giswqs/leafmap
+pip install git+https://github.com/opengeos/leafmap
+```
+
+## Use docker
+
+You can also use [docker](https://hub.docker.com/r/giswqs/leafmap/) to run leafmap:
+
+```bash
+docker run -it -p 8888:8888 giswqs/leafmap:latest
 ```
 
 ## Upgrade leafmap
@@ -46,25 +51,25 @@ To install the development version from GitHub using [Git](https://git-scm.com/)
 If you have installed **leafmap** before and want to upgrade to the latest version, you can run the following command in your terminal:
 
 ```bash
-    pip install -U leafmap
+pip install -U leafmap
 ```
 
 If you use conda, you can update leafmap to the latest version by running the following command in your terminal:
 
 ```bash
-    conda update -c conda-forge leafmap
+conda update -c conda-forge leafmap
 ```
 
 To install the development version from GitHub directly within Jupyter notebook without using Git, run the following code:
 
 ```python
-    import leafmap
-    leafmap.update_package()
+import leafmap
+leafmap.update_package()
 ```
 
 ## Troubleshooting
 
-If the interactive map does not show up on Jupyter Notebook and JupyterLab, it is probably because the [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) extentsion is not installed properly.
+If the interactive map does not show up on Jupyter Notebook and JupyterLab, it is probably because the [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) extension is not installed properly.
 For example, you might receive an error message saying `Error displaying widget: model not found`. This a well-known issue related to ipyleaflet. See some relevant issues below.
 
 -   [How to display map object using ipyleaflet in jupyter notebook or jupyter Lab](https://github.com/jupyter-widgets/ipyleaflet/issues/739)
@@ -89,5 +94,4 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet
 
 Alternatively, you can run leafmap directly using binder:
 
--   <https://gishub.org/leafmap-pangeo>
--   <https://gishub.org/leafmap-binder>
+-   <https://mybinder.org/v2/gh/opengeos/leafmap/HEAD>

@@ -1,6 +1,6 @@
 # Usage
 
-You can try out leafmap by using Goolge Colab ([![image](https://colab.research.google.com/assets/colab-badge.svg)](https://gishub.org/leafmap-colab)) or Binder ([![image](https://binder.pangeo.io/badge_logo.svg)](https://gishub.org/leafmap-pangeo)) without having to install anything on your computer.
+You can try out leafmap by using Goolge Colab ([![image](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/opengeos/leafmap/blob/master)) or Binder ([![image](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/opengeos/leafmap/HEAD)) without having to install anything on your computer.
 
 ## Launch Jupyter notebook
 
@@ -83,7 +83,7 @@ export HEREMAPS_API_KEY=YOUR-ACTUAL-API-KEY
 import leafmap.heremap as leafmap
 ```
 
-## Create an interactive map
+### Create an interactive map
 
 ```python
 import os
